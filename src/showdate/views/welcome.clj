@@ -1,9 +1,11 @@
 (ns showdate.views.welcome
-  (:require [showdate.views.common :as common]
-            [noir.content.getting-started])
+  (import java.util.Date)
+  (:require [showdate.views.common :as common])
+
   (:use [noir.core :only [defpage]]
         [hiccup.core :only [html]]))
 
 (defpage "/welcome" []
          (common/layout
-           [:p "Welcome to showdate"]))
+          [:h1 (str "La hora: " (Date.))]
+          ))

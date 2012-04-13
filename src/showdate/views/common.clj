@@ -6,7 +6,7 @@
             (html5
               [:head
                [:title "showdate"]
-               (include-css "/css/reset.css")]
+               (include-css "/css/no-reset.css")]
               [:body
                [:div#wrapper
                 content]]))
