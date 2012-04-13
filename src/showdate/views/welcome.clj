@@ -5,7 +5,7 @@
   (:use [noir.core :only [defpage]]
         [hiccup.core :only [html]]))
 
-(defpage "/welcome" []
+(defpage "/" []
          (common/layout
           [:h1 (str "La hora: " (Date.))]
           ))
