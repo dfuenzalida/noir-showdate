@@ -1,7 +1,11 @@
 (ns showdate.server
-  (:require [noir.server :as server]))
+  (:require [noir.server :as server]
+            [showdate.views.welcome]
+            [showdate.views.common]))
 
-(server/load-views "src/showdate/views/")
+;;; load the views as above, detail on link below
+;;; https://groups.google.com/forum/#!msg/clj-noir/QNEzGfS8uUQ/9MriuDkdqXAJ
+;;; (server/load-views "src/showdate/views/")
 
 ;;; after loading the views
 (def handler (server/gen-handler {:mode :dev
