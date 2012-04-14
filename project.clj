@@ -2,6 +2,7 @@
             :description "FIXME: write this!"
             :dependencies [[org.clojure/clojure "1.3.0"]
                            [noir "1.2.1"]]
-            :dev-dependencies [[uk.org.alienscience/leiningen-war "0.0.13"]]
+            :plugins [[lein-ring "0.6.4"]]
+            :ring {:handler showdate.server/handler}
             :main showdate.server)
 
