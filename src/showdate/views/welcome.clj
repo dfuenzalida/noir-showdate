@@ -1,26 +1,39 @@
 (ns showdate.views.welcome
   (:require [showdate.views.common :as common]
-            [showdate.models.customers :as customers])
+            [showdate.models.customers :as customers]
+            [showdate.models.products :as products])
 
   (:use [noir.core]
         [hiccup.core :only [html]]))
 
-;; notar destructuring aqui
-(defpartial table-rows [{:keys [id name]}]
+;; note destructuring
+(defpartial table-rows
+  [{:keys [id name code manufacturer_id manufacturer_name]}]
+
+  ;; row
   [:tr
-   [:td id ][:td name]]
+   [:td id ]
+   [:td code]
+   [:td name]
+   [:td
+    [:a {:href (str "manufacturer/" manufacturer_id)} manufacturer_name]]]
   )
 
-(defpartial show-item [item]
-  [:li (str item)])
-
+;; default page is the list of products
 (defpage "/" []
   (common/layout
-   [:h1 {:style "padding: 10px 0px 10px"} "Lista de Clientes"]
+   [:h1 {:style "padding: 10px 0px 10px"} "Products List"]
 
    [:div.row
     [:table {:class "table table-bordered table-stripped"}
-     (map table-rows (customers/get-customers))]
+     [:tr
+      [:th :#][:th "Product Name"][:th :Code][:th :Manufacturer]]
+     (map table-rows (products/get-products))]
     ]
 
    ))
+
+(defpage "/manufacturer/:id" {man-id :id}
+  (common/layout
+   [:h1 man-id]
+  ))
