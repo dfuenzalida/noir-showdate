@@ -10,6 +10,8 @@
                                          com.sun.jdmk/jmxtools
                                          com.sun.jmx/jmxri]]]
             :plugins [[lein-ring "0.7.1"]]
-            :ring {:handler showdate.server/handler}
+            :ring {:handler showdate.server/handler
+                   ;; initialization code which runs once
+                   :init showdate.server/init}
             :main showdate.server)
 
