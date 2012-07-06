@@ -34,6 +34,11 @@
    ))
 
 (defpage "/manufacturer/:id" {man-id :id}
-  (common/layout
-   [:h1 man-id]
-  ))
+  (let [man (products/get-manufacturer man-id)]
+    (common/layout
+     [:h1 "Manufacturer details"]
+     [:h2 (:NAME man)]
+     [:h3 (:ADDRESSLINE1 man)]
+     [:h3 (:ADDRESSLINE2 man)]
+     [:h4 "Phone: " (:PHONE man)]
+     )))

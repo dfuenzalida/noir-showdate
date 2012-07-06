@@ -25,4 +25,9 @@
     [:MANUFACTURER.NAME :manufacturer_name]
     [:PRODUCT_CODE :code]
     [:DESCRIPTION :name])
-  ))
+   ))
+
+(defn get-manufacturer [mid]
+  (first
+   (select manufacturers
+           (where (= :MANUFACTURER_ID mid)))))
