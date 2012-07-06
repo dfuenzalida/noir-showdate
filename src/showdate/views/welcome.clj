@@ -1,7 +1,8 @@
 (ns showdate.views.welcome
   (:require [showdate.views.common :as common]
             [showdate.models.customers :as customers]
-            [showdate.models.products :as products])
+            [showdate.models.products :as products]
+            [ring.util.response :as ring])
 
   (:use [noir.core]
         [hiccup.core :only [html]]))
@@ -21,6 +22,9 @@
 
 ;; default page is the list of products
 (defpage "/" []
+  (ring/redirect "products"))
+
+(defpage "/products" []
   (common/layout
    [:h1 {:style "padding: 10px 0px 10px"} "Products List"]
 
@@ -42,3 +46,4 @@
      [:h3 (:ADDRESSLINE2 man)]
      [:h4 "Phone: " (:PHONE man)]
      )))
+
