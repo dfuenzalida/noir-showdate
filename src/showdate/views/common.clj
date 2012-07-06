@@ -16,7 +16,9 @@
      [:div content]
      [:hr]
      [:footer.footer
-      [:p.pull-right [:a {:href "#"} "Inicio"]]
+      [:p.pull-right
+       [:a {:href "/"} "Home"] " | "    
+       [:a {:href "#"} "Top of the page"]]
       [:p (str "Generado: " (Date.))]]
      ]]
    ))
